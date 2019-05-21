@@ -91,3 +91,12 @@ compileTestKotlin {
 	    javaParameters = true 
 	}
 }
+
+task deploy (type: Exec) {
+    if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+        //commandLine 'cmd', '/c', 'mycommand'
+    } else {
+        commandLine 'sh', '-c', './deploy.sh'
+    }
+}
+
