@@ -9,6 +9,6 @@ class PersonController {
 
     @Get("/")
     fun show(): String {
-        return "person"
+        return "persons"
     }
 }

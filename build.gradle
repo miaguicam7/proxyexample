@@ -92,7 +92,7 @@ compileTestKotlin {
 	}
 }
 
-task deploy (type: Exec) {
+task deploy (type: Exec, dependsOn: 'build') {
     if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
         //commandLine 'cmd', '/c', 'mycommand'
     } else {
@@ -100,3 +100,10 @@ task deploy (type: Exec) {
     }
 }
 
+task deployLocal (type: Exec, dependsOn: 'build') {
+    if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+        //commandLine 'cmd', '/c', 'mycommand'
+    } else {
+        commandLine 'sh', '-c', 'sam local start-api --template sam.yaml'
+    }
+}
