@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: proxyexample
+---
+testFramework: spek
+sourceLanguage: kotlin
